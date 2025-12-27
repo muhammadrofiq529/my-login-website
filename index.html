@@ -26,12 +26,13 @@
   firebase.initializeApp(firebaseConfig);
   const auth = firebase.auth();
 
-  function login(){
-    auth.signInWithEmailAndPassword(
-      email.value, password.value
-    ).then(() => alert("Login berhasil"))
-     .catch(err => alert(err.message));
-  }
+ function login(){
+  auth.signInWithEmailAndPassword(
+    email.value, password.value
+  ).then(() => {
+    window.location.href = "dashboard.html";
+  }).catch(err => alert(err.message));
+}
 
   function register(){
     auth.createUserWithEmailAndPassword(
