@@ -1,9 +1,45 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Login Website</title>
+  <title>Login</title>
 </head>
 <body>
-  <h1>Website Login Berhasil Online</h1>
+
+<h2>Login</h2>
+
+<input type="email" id="email" placeholder="Email"><br><br>
+<input type="password" id="password" placeholder="Password"><br><br>
+
+<button onclick="login()">Login</button>
+<button onclick="register()">Register</button>
+
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
+
+<script>
+  const firebaseConfig = {
+    apiKey: "AIzaSyBsyxMMHTeYR8HsrjWHj6zyD9jaPzahWM8",
+    authDomain: "login-website-7a498.firebaseapp.com",
+    projectId: "login-website-7a498",
+  };
+
+  firebase.initializeApp(firebaseConfig);
+  const auth = firebase.auth();
+
+  function login(){
+    auth.signInWithEmailAndPassword(
+      email.value, password.value
+    ).then(() => alert("Login berhasil"))
+     .catch(err => alert(err.message));
+  }
+
+  function register(){
+    auth.createUserWithEmailAndPassword(
+      email.value, password.value
+    ).then(() => alert("Register berhasil"))
+     .catch(err => alert(err.message));
+  }
+</script>
+
 </body>
 </html>
