@@ -33,6 +33,12 @@
     window.location.href = "dashboard.html";
   }).catch(err => alert(err.message));
 }
+  auth.onAuthStateChanged(user => {
+  if(user){
+    window.location.href = "dashboard.html";
+  }
+});
+
 
   function register(){
     auth.createUserWithEmailAndPassword(
